@@ -29,6 +29,22 @@ app.post("/signup",async (req,res)=>{
     }
 })
 
+app.post("/login", async(req,res)=>{
+    const {email,password}=req.body;
+
+    try{
+        const user=await User.findOne({email:email});
+        if(!user){
+            return res.json({message:"User not exist"})
+        }else{
+            return res.status(201).json({message:"Loged In"})
+        }
+    }
+    catch(e){
+        console.log(e);
+    }
+})
+
 app.listen(8000, () => {
     console.log("port connected");
   });
