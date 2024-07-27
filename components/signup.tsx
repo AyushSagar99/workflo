@@ -20,6 +20,7 @@ function Signup() {
       });
       if(res.data.message ==="Signed In"){
         localStorage.setItem("token",res.data.token);
+        localStorage.setItem("name",res.data.name);
         router.push("/dashboard");
       }
 
