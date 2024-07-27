@@ -19,6 +19,7 @@ function Signup() {
         password
       });
       if(res.data.message ==="Signed In"){
+        localStorage.setItem("token",res.data.token);
         router.push("/dashboard");
       }
 
