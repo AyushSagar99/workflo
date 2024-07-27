@@ -17,6 +17,8 @@ function Login() {
         password
       });
       if(res.data.message ==="Loged In"){
+        localStorage.setItem("name",res.data.name)
+        localStorage.setItem("token",res.data.token)
         router.push("/dashboard");
       }
       else if(res.data.message === "User not exist"){

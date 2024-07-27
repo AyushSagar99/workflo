@@ -59,9 +59,8 @@ app.post("/login", async (req, res) => {
     if (!user) {
       return res.status(409).json({ message: "User not exist" });
     } else {
-      // Assuming password check is successful (you should add password hashing and checking)
       const token = jwt.sign({ userId: user._id, email: user.email }, secret_key, { expiresIn: '1h' });
-      return res.status(201).json({ message: "Loged In", token });
+      return res.status(201).json({ message: "Loged In", token,name:user.name });
     }
   } catch (e) {
     console.log(e);

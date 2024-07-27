@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { CiCirclePlus } from 'react-icons/ci';
+import { CiCirclePlus, CiSettings } from 'react-icons/ci';
 
 const drawerWidth = 240;
 
@@ -31,6 +31,7 @@ export default function Sidebar() {
             {['Home', 'Boards', 'Settings', 'Teams','Analytics'].map((text, index) => (
             
               <ListItem key={text} disablePadding>
+                <CiSettings/>
                 
                 <ListItemButton>
                   <ListItemIcon>
