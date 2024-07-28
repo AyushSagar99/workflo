@@ -8,14 +8,18 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { CiCirclePlus, CiSettings } from 'react-icons/ci';
+import { CiCirclePlus, CiSettings, CiViewBoard } from 'react-icons/ci';
+import { SlSettings } from 'react-icons/sl';
+import { HiHome } from 'react-icons/hi';
+import { AiOutlineStock, AiOutlineTeam } from 'react-icons/ai';
+import CreateNewTask from './newTask';
 
 const drawerWidth = 240;
 
 export default function Sidebar() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+    <Box sx={{ display: 'flex' }}  >
+      
       
       <Drawer
         variant="permanent"
@@ -31,18 +35,21 @@ export default function Sidebar() {
             {['Home', 'Boards', 'Settings', 'Teams','Analytics'].map((text, index) => (
             
               <ListItem key={text} disablePadding>
-                <CiSettings/>
+                
                 
                 <ListItemButton>
                   <ListItemIcon>
+                    {index ===0 ? <HiHome/> : null}
+                    {index ===1 ? <CiViewBoard /> : null}
+                    {index ===2 ? <SlSettings/> : null}
+                    {index ===3 ? <AiOutlineTeam /> : null}
+                    {index ===4 ? <AiOutlineStock /> : null}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
               </ListItem>
             ))}
-            <button className='flex justify-center items-center ml-10 gap-2 bg-indigo-600
-             text-white p-2 rounded-md'>Create New Task <CiCirclePlus /> </button>
-            
+            <CreateNewTask/>
           </List>
           
           
